@@ -1,5 +1,6 @@
-CREATE TABLE book (
+CREATE TABLE users (
     id TEXT PRIMARY KEY UNIQUE NOT NULL,
-    title TEXT NOT NULL,
-    price INTEGER NOT NULL
+    login TEXT NOT NULL UNIQUE,
+    password INTEGER NOT NULL,
+    role TEXT NOT NULL
 )
