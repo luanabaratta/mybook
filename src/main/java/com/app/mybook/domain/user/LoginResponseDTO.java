@@ -1,4 +1,4 @@
 package com.app.mybook.domain.user;
 
-public record LoginResponseDTO() {
+public record LoginResponseDTO(String token) {
 }
