@@ -1,5 +1,7 @@
 package com.app.mybook.controller;
 
+import com.app.mybook.domain.user.LoginResponseDTO;
+import com.app.mybook.service.TokenService;
 import com.app.mybook.domain.user.AuthenticationDTO;
 import com.app.mybook.domain.user.RegisterDTO;
 import com.app.mybook.domain.user.User;
@@ -25,9 +27,17 @@ public class AuthenticationController {
     @Autowired
     private UserRepository repository;
 
+    @Autowired
+    TokenService tokenService;
+
     @PostMapping("/login")
     public ResponseEntity login(@RequestBody @Valid AuthenticationDTO data) {
         var usernamePassword = new UsernamePasswordAuthenticationToken(data.login(), data.password());
+        var auth = this.authenticationManager.authenticate(usernamePassword);
+
+        var token = tokenService.generateToken((User) auth.getPrincipal());
+
+        return ResponseEntity.ok(new LoginResponseDTO(token));
     }
 
     @PostMapping("/register")
