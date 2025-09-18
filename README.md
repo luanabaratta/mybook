@@ -18,7 +18,7 @@ POST /auth/register - Register a new user
 ## Authentication
 
 ```
-USER -> Standard user role for logged-in users.
+USER -> User role for logged-in users.
 ADMIN -> Admin role for managing registrations.
 ```
 
