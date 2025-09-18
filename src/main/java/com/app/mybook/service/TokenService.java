@@ -1,4 +1,4 @@
-package com.app.mybook.config;
+package com.app.mybook.service;
 
 import com.app.mybook.domain.user.User;
 import com.auth0.jwt.JWT;
