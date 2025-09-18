@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController()
+@RestController
 @RequestMapping("book")
 public class BookController {
 
@@ -19,8 +19,8 @@ public class BookController {
     BookRepository repository;
 
     @PostMapping
-    public ResponseEntity postBook(@RequestBody @Valid BookRequestDTO bookRequestDTO) {
-        Book newBook = new Book(bookRequestDTO);
+    public ResponseEntity postBook(@RequestBody @Valid BookRequestDTO data) {
+        Book newBook = new Book(data);
 
         this.repository.save(newBook);
         return ResponseEntity.ok().build();
